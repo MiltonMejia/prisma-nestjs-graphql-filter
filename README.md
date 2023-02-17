@@ -91,6 +91,16 @@ input ExampleInputArray {
 }
 ```
 
+## Static typing
+
+Because all fields injected with WhereInput are not declared by the decorator explicitly, Typescript can't recognizes the class fields. To avoid this and helps IDE to hinting, you can extend `CastToAbstract` with prisma where type.
+
+For example:
+
+```typescript
+class ExampleInputArray extends CastToAbstract<Prisma.HelloWorldWhereInput>() {}
+```
+
 ## Prisma filters and extra types
 
 There are many prisma filter types and extra types availables that you can use as:
