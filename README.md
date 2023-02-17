@@ -4,6 +4,10 @@ This package helps you to reduce boilerplate if you want to create Prisma filter
 
 This package is compatible with all Graphql input types and all classes with InputType decorator. Also you can declare your field input type as array (check the examples below)
 
+## Before installation
+
+You must install `class-transformer` package before install if you want to use DecimalFilter
+
 ## Installation
 
 ### NPM
@@ -86,3 +90,24 @@ input ExampleInputArray {
   relationField: [StringListRelationWhereInput]
 }
 ```
+
+## Prisma filters and extra types
+
+There are many prisma filter types and extra types availables that you can use as:
+
+- AffectedRows
+- BoolFilter
+- BoolWithAggregatesFilter
+- DateTimeFilter
+- DateTimeWithAggregatesFilter
+- DecimalFilter
+- DecimalWithAggregatesFilter
+- FloatFilter
+- FloatWithAggregatesFilter
+- IntFilter
+- IntWithAggregatesFilter
+- QueryMode
+- SortOrder
+- StringFilter
+- StringWithAggregatesFilter
+- TransactionIsolationLevel
