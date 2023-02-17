@@ -1,4 +1,4 @@
-# Prisma nestjs graphql filter decorator
+# Prisma nestjs graphql filter
 
 This package helps you to reduce boilerplate if you want to create Prisma filter input in Graphql. WhereInput decorator accepts an array of arguments, so you can add all fields with any type as you need.
 
@@ -9,13 +9,13 @@ This package is compatible with all Graphql input types and all classes with Inp
 ### NPM
 
 ```
-npm -i prisma-nestjs-graphql-filter-decorator
+npm -i prisma-nestjs-graphql-filter
 ```
 
 ### Yarn
 
 ```
-yarn add prisma-nestjs-graphql-filter-decorator
+yarn add prisma-nestjs-graphql-filter
 ```
 
 ## How to use
