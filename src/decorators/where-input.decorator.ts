@@ -1,10 +1,11 @@
 import { addField } from '../functions/add-field.function';
 import { injectInputType } from '../functions/inject-input-type.function';
-import { WhereInput } from '../types/where.input';
+import { InputArgs } from '../types/input-args.input';
 
 /**
- * This decorator allow inject a list of field into an InputType, reducing boilerplate code to minimum.
- * All Graphql types, and classes decorated with InputType are compatible,
+ * This decorator allows inject a list of field into an InputType, reducing boilerplate code to minimum.
+ * All Graphql types, and classes decorated with InputType are compatible.
+ * NOTE: In circular inputs, this input may not work because circular dependency issues.
  *
  * This decorator only add fields to graphql schema, so you must to add prisma filter types to your variables
  * @param args
@@ -21,10 +22,10 @@ import { WhereInput } from '../types/where.input';
  * 	{ type: RelationInputType(CustomClass), fields: ['helloRelation', 'worldRelation'] }
  * )
  */
-export function WhereInput(...args: WhereInput[]) {
+export function WhereInput(...args: InputArgs[]) {
 	return function (target: Function) {
 		injectInputType(target);
-		const prismaFields: WhereInput[] = [{ fields: ['AND', 'OR', 'NOT'], type: [target] }];
+		const prismaFields: InputArgs[] = [{ fields: ['AND', 'OR', 'NOT'], type: [target] }];
 		prismaFields.concat(args).map((item) => addField(target, item));
 	};
 }

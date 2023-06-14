@@ -1,3 +1,3 @@
-import { WhereInput } from './where.input';
+import { InputArgs } from './input-args.input';
 
-export type RelationInput = Omit<WhereInput, 'type, fields'> & { name?: string };
+export type RelationInput = Omit<InputArgs, 'type, fields'> & { name?: string };
