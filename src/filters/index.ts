@@ -3,8 +3,6 @@ export { BoolFilter } from './bool-filter.input';
 export { BoolWithAggregatesFilter } from './bool-with-aggregates-filter.input';
 export { DateTimeFilter } from './date-time-filter.input';
 export { DateTimeWithAggregatesFilter } from './date-time-with-aggregates-filter.input';
-export { DecimalFilter } from './decimal-filter.input';
-export { DecimalWithAggregatesFilter } from './decimal-with-aggregates-filter.input';
 export { FloatFilter } from './float-filter.input';
 export { FloatWithAggregatesFilter } from './float-with-aggregates-filter.input';
 export { IntFilter } from './int-filter.input';
