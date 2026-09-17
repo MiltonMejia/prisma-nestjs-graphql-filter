@@ -1,6 +1,6 @@
 import { Complexity, FieldMiddleware } from '@nestjs/graphql';
 import { GraphQLScalarType } from 'graphql';
-import { SortOrder } from '../filters';
+import { SortOrder } from '../filters/index.js';
 
 export type InputArgs = {
 	type: Function | Function[] | GraphQLScalarType<unknown, unknown> | typeof SortOrder;

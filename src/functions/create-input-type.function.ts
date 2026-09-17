@@ -1,8 +1,5 @@
-import { TypeMetadataStorage } from '@nestjs/graphql';
-import { ClassType } from '@nestjs/graphql/dist/enums/class-type.enum';
-import { ClassMetadata } from '@nestjs/graphql/dist/schema-builder/metadata';
-import { LazyMetadataStorage } from '@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage';
-import { addClassTypeMetadata } from '@nestjs/graphql/dist/utils/add-class-type-metadata.util';
+import { SetMetadata } from '@nestjs/common';
+import { CLASS_TYPE_METADATA, TypeMetadataStorage } from '@nestjs/graphql';
 
 /**
  * This function returns a generic class with the injected InputType that was previously generated and stored from TypeMetadataStorage
@@ -26,10 +23,8 @@ export function createInputType(name: string, description?: string) {
 	Object.defineProperty(GenericInputType, 'name', { value: name });
 
 	// Add InputType to TypeMetadataStorage if storedInputType isn't found
-	const metadata: ClassMetadata = { name: name, target: GenericInputType, description: description };
-	TypeMetadataStorage.addInputTypeMetadata(metadata);
-	LazyMetadataStorage.store(() => TypeMetadataStorage.addInputTypeMetadata(metadata));
-	addClassTypeMetadata(GenericInputType, ClassType.INPUT);
+	TypeMetadataStorage.addInputTypeMetadata({ name, target: GenericInputType, description });
+	SetMetadata(CLASS_TYPE_METADATA, 'inputType')(GenericInputType);
 
 	// Return new InputType
 	return GenericInputType;

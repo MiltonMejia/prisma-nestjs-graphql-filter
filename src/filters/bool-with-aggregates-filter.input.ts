@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { BoolFilter } from './bool-filter.input';
-import { IntFilter } from './int-filter.input';
+import { BoolFilter } from './bool-filter.input.js';
+import { IntFilter } from './int-filter.input.js';
 
 @InputType()
 export class BoolWithAggregatesFilter {

@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { DateTimeFilter } from './date-time-filter.input';
-import { IntFilter } from './int-filter.input';
+import { DateTimeFilter } from './date-time-filter.input.js';
+import { IntFilter } from './int-filter.input.js';
 
 @InputType()
 export class DateTimeWithAggregatesFilter {

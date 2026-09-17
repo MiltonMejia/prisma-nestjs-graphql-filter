@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IntFilter } from './int-filter.input';
-import { StringFilter } from './string-filter.input';
+import { IntFilter } from './int-filter.input.js';
+import { StringFilter } from './string-filter.input.js';
 
 @InputType()
 export class StringWithAggregatesFilter {

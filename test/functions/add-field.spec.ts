@@ -1,17 +1,18 @@
 import { TypeMetadataStorage } from '@nestjs/graphql';
-import { getFieldsAndDecoratorForType } from '@nestjs/graphql/dist/schema-builder/utils/get-fields-and-decorator.util';
 import { addField } from '../../src/functions/add-field.function';
 import { createInputType } from '../../src/functions/create-input-type.function';
+import { buildSchema, getInputTypeSDL } from '../utils/build-schema';
 describe('addField Testing', () => {
 	afterAll(() => {
 		TypeMetadataStorage.clear();
 	});
 
-	it('Should inject fields to dynamic InputType', () => {
+	it('Should inject fields to dynamic InputType', async () => {
 		const InputClass = createInputType('NewInputType', 'InputType created dinamically') as any;
 		addField(InputClass, { type: String, fields: ['inputClass', 'otherInputClass'] });
 
-		const inputClassFields = getFieldsAndDecoratorForType(InputClass).fields.map((item) => item.name);
-		expect(inputClassFields).toEqual(['inputClass', 'otherInputClass']);
+		const inputSDL = getInputTypeSDL(await buildSchema([InputClass]), 'NewInputType');
+		expect(inputSDL).toContain('inputClass: String');
+		expect(inputSDL).toContain('otherInputClass: String');
 	});
 });

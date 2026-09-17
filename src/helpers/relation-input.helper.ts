@@ -1,6 +1,6 @@
 import { addFieldMetadata } from '@nestjs/graphql';
-import { RelationInput } from '../types/relation-input.type';
-import { createInputType } from '../functions/create-input-type.function';
+import { RelationInput } from '../types/relation-input.type.js';
+import { createInputType } from '../functions/create-input-type.function.js';
 
 /**
  * Cast any InputType to compatible Prisma list relation filter. You must use this function if field filter

@@ -1,6 +1,6 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
-import { FloatFilter } from './float-filter.input';
-import { IntFilter } from './int-filter.input';
+import { FloatFilter } from './float-filter.input.js';
+import { IntFilter } from './int-filter.input.js';
 
 @InputType()
 export class IntWithAggregatesFilter {

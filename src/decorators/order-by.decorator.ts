@@ -1,6 +1,6 @@
-import { addField } from '../functions/add-field.function';
-import { injectInputType } from '../functions/inject-input-type.function';
-import { InputArgs } from '../types/input-args.input';
+import { addField } from '../functions/add-field.function.js';
+import { injectInputType } from '../functions/inject-input-type.function.js';
+import { InputArgs } from '../types/input-args.input.js';
 
 /**
  * This decorator helps you to create OrderBy inputs of Prisma easily and reduce boilerplate at same time
